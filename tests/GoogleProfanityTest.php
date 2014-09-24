@@ -40,7 +40,11 @@ class GoogleProfanityTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidResponse()
     {
-        $this->profanity->check('test', 'http://127.0.0.1?q=');
+        $file = '/tmp/null-';
+
+        file_put_contents($file . 'test', null);
+
+        $this->profanity->check('test', $file);
     }
 }
 
